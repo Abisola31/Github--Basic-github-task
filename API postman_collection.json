@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "02c4abee-1c49-41cb-b908-697a7279df41",
-		"name": "API Collection",
+		"name": "APICollection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24226715"
 	},
@@ -13,6 +13,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"\r",
 							""
 						],
 						"type": "text/javascript"
@@ -26,6 +27,51 @@
 					"raw": "{{Baseurl}}todo",
 					"host": [
 						"{{Baseurl}}todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register an API Client Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"console.log(jsonData)\r",
+							"\r",
+							"console.log(jsonData.accessToken)\r",
+							"pm.globals.set(\"Token\", jsonData.accessToken);\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"clientName\": \"Blessing\",\n   \"clientEmail\": \"ayoooo5@mailinator.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseurlBooks}}api-clients/",
+					"host": [
+						"{{BaseurlBooks}}api-clients"
+					],
+					"path": [
+						""
 					]
 				}
 			},
@@ -309,7 +355,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "592148dc043b67e9831962b81d80aa9e39c8a8b372b72de81d0681eb7ff01bb2",
+							"value": "{{Token}}",
 							"type": "string"
 						}
 					]
@@ -366,17 +412,7 @@
 							"var jsonData = pm.response.json();\r",
 							"console.log(jsonData)\r",
 							"\r",
-							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"John\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"kcJHJBJFAV3lBa42zY3Zi\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(1668518314349);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -391,7 +427,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "592148dc043b67e9831962b81d80aa9e39c8a8b372b72de81d0681eb7ff01bb2",
+							"value": "{{Token}}",
 							"type": "string"
 						}
 					]
@@ -458,7 +494,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "592148dc043b67e9831962b81d80aa9e39c8a8b372b72de81d0681eb7ff01bb2",
+							"value": "{{Token}}",
 							"type": "string"
 						}
 					]
@@ -528,7 +564,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "592148dc043b67e9831962b81d80aa9e39c8a8b372b72de81d0681eb7ff01bb2",
+							"value": "{{Token}}",
 							"type": "string"
 						}
 					]
